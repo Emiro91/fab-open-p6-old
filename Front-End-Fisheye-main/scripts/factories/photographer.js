@@ -18,11 +18,14 @@ function photographerFactory(data) {
         const h4 = document.createElement("h4");
         h4.textContent = tagline;
 
+        const p = document.createElement("p");
+        p.textContent = `${price}€/jour`;
+
         const span = document.createElement("span")
         span.textContent = tags;
 
-        const p = document.createElement("p");
-        p.textContent = `${price}€/jour`;
+        // const ahref = document.createElement("a")
+        // ahref.textContent = tags;
 
         const ahref = document.createElement("a");
         ahref.setAttribute("class", "link");
@@ -35,9 +38,7 @@ function photographerFactory(data) {
         article.appendChild(h3);
         article.appendChild(h4);
         article.appendChild(p);
-        article.appendChild(tagline);
-        article.appendChild(tags);
-        article.appendChild(price);
+        article.appendChild(span);
 
         return (article);
     }
