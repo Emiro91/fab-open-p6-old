@@ -27,7 +27,7 @@ a {
 .logo {
     height: 50px;
     margin-left: 100px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .photographer_section {
@@ -50,6 +50,15 @@ a {
     font-size: 36px;
 }
 
+.photographer_section article h3 {
+    color: #D3573C;
+}
+
+.photographer_section article h4 {
+    color: black;
+}
+
+
 .photographer_section article img {
     height: 200px;
     width: 200px;
@@ -59,4 +68,8 @@ a {
 .photographer_section article img:hover {
     height:250px;
     width: 250px;
-    }
+}
+
+.photographer_section article p{
+    color: #525252;
+}

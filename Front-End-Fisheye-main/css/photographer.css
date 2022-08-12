@@ -2,10 +2,14 @@
     display: none;
 }
 
-.photograph-header {
+.photograph-header { 
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    flex-direction: inherit;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .contact_button {
@@ -75,3 +79,31 @@ form input {
     border: none;
     border-radius: 5px;
 }
+.photographImg {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.filter {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: start;
+    margin-left: 100px;
+    gap: 15px;
+  }
+
+.filter-select {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        padding: 11px;
+        width: 170px;
+        height: 70px;
+        border: none;
+        background-color: #901C1C;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 150px;
+  }
