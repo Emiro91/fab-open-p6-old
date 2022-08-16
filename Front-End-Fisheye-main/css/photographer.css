@@ -114,3 +114,10 @@ form input {
     width: 200px;
     border-radius: 10px;
   }
+  .img-colums{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  li{
+    list-style-type: none;
+  }

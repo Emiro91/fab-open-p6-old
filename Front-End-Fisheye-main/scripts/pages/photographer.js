@@ -33,24 +33,4 @@ async function init() {
 };
 
 init();
-(function (root) {
-	"use strict";
-	if (root.imgLightbox) {
-		imgLightbox("img-lightbox-link", {
-			onCreated: function () {
-				/* show your preloader */
-			},
-			onLoaded: function () {
-				/* hide your preloader */
-			},
-			onError: function () {
-				/* hide your preloader */
-			},
-			onClosed: function () {
-				/* hide your preloader */
-			},
-			rate: 500 /* default: 500 */ ,
-			touch: false /* default: false - use with care for responsive images in links on vertical mobile screens */
-		});
-	}
-})("undefined" !== typeof window ? window : this);
+
