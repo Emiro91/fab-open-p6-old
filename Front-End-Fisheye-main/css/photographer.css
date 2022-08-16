@@ -121,3 +121,13 @@ form input {
   li{
     list-style-type: none;
   }
+  .heart-link {
+    border-radius: 50px;
+    width: 45px;
+    height: 45px;
+  }
+  .header-like {
+    display: flex;
+    flex-direction: initial;
+    gap: 10px;
+  }
