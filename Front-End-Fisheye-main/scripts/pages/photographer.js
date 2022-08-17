@@ -25,12 +25,21 @@ async function displayData(photographer) {
     const profiles = profileModel.getProfilePage();
     photographersSection.appendChild(profiles);
 };
+async function displayMedia(photographer) {
+    const mediaSection = document.getElementById("displayMedia");
+    const mediaModel = photographerFactory(photographer);
+    const medias = mediaModel.getmediasPage();
+    mediaSection.appendChild(medias);
+};
 
 async function init() {
     // Récupère les datas des photographes
     const photographer = await getPhotographer();
     displayData(photographer.photographers);
+    displayMedia(photographer.media)
 };
 
 init();
+
+
 

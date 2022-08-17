@@ -101,6 +101,27 @@ function photographerFactory(data) {
         priceLikes.appendChild(priceDay);
         return photographHeader;
     }
+    function getmediasPage(){
+        const ul=document.createElement("ul");
+        ul.setAttribute("class","img-colums");
+        const medialist=document.createElement("li");
+        const ahref=document.createElement("a");
+        ahref.setAttribute("class","cards-media-img");
+        ahref.setAttribute("role","button");
+        ahref.setAttribute("title","Oiseau sur une branche");
+        ahref.setAttribute("aria-describedby","ouvrir le slider");
+        ahref.setAttribute("href","#");
+        const img=document.createElement("img");
+        img.setAttribute("class","media-img");
+        img.setAttribute("src","../FishEye_Photos/Sample Photos/Mimi/Animals_Rainbow.jpg");
+        img.setAttribute("alt","like");
+        const p=document.createElement("p");
+        p.setAttribute("class","cards-media-title");
+        const div=document.createElement("div");
+        div.setAttribute("class","header-like");
+        const p= document.cre class="compteur" aria-label="Nombre de likes 300" tabindex="0">300</p>
+        <button class="heart-link" aria-label="aimer cette photo" role="button" tabindex="0">
+        <i class="heart far fa-heart"></i></button></div>
     return {
         id,
         name,
