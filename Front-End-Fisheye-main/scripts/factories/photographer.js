@@ -6,7 +6,10 @@ function photographerFactory(data) {
         city,
         country,
         tagline,
-        price
+        price,
+        title,
+        image,
+        likes,
     } = data;
 
     const picture = `assets/photographers/${portrait}`;
@@ -102,26 +105,46 @@ function photographerFactory(data) {
         return photographHeader;
     }
     function getmediasPage(){
-        const ul=document.createElement("ul");
-        ul.setAttribute("class","img-colums");
-        const medialist=document.createElement("li");
+
+        const li=document.createElement("li");       
         const ahref=document.createElement("a");
         ahref.setAttribute("class","cards-media-img");
         ahref.setAttribute("role","button");
-        ahref.setAttribute("title","Oiseau sur une branche");
+        ahref.setAttribute("title",title);
         ahref.setAttribute("aria-describedby","ouvrir le slider");
         ahref.setAttribute("href","#");
         const img=document.createElement("img");
         img.setAttribute("class","media-img");
-        img.setAttribute("src","../FishEye_Photos/Sample Photos/Mimi/Animals_Rainbow.jpg");
+        img.setAttribute("src","../FishEye_Photos/Sample Photos/Mimi/Animals_Rainbow.jpg");  /* pas clair */
         img.setAttribute("alt","like");
-        const p=document.createElement("p");
-        p.setAttribute("class","cards-media-title");
+        const titlep=document.createElement("p");
+        titlep.setAttribute("class","cards-media-title");
+        titlep.textContent= title ;                       /* pas clair */
         const div=document.createElement("div");
         div.setAttribute("class","header-like");
-        const p= document.cre class="compteur" aria-label="Nombre de likes 300" tabindex="0">300</p>
-        <button class="heart-link" aria-label="aimer cette photo" role="button" tabindex="0">
-        <i class="heart far fa-heart"></i></button></div>
+        const compteurp= document.createElement("p")
+        compteurp.setAttribute("class","compteur"); 
+        compteurp.setAttribute("aria-label","Nombre de likes 300");
+        compteurp.setAttribute("tabindex","0>300<");
+
+        compteurp.textContent= `${likes}`;                    /* pas clair */
+        const button=document.createElement("button");
+        button.setAttribute("class","heart-link");
+        button.setAttribute("aria-label","aimer cette photo");
+        button.setAttribute("role","button");
+        button.setAttribute("tabindex","0");
+        const i=document.createElement ("i");
+        i.setAttribute("class","heart far fa-heart");
+
+        li.appendChild(ahref);
+        li.appendChild(img);
+        li.appendChild(titlep);
+        li.appendChild(div);
+        div.appendChild(compteurp);
+        compteurp.appendChild(button);
+        button.appendChild(i);
+        return li;
+    }
     return {
         id,
         name,
@@ -132,6 +155,7 @@ function photographerFactory(data) {
         price,
         getUserCardDOM,
         getProfilePage,
+        getmediasPage,
     }
 
 }
