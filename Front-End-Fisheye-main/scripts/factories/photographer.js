@@ -10,6 +10,7 @@ function photographerFactory(data) {
         title,
         image,
         likes,
+        video,
     } = data;
 
     const picture = `assets/photographers/${portrait}`;
@@ -106,6 +107,9 @@ function photographerFactory(data) {
     }
     function getmediasPage(){
 
+        
+        const jpg = `assets/images/media/${image}`;
+        const mp4 = `assets/images/media/${video}`;
         const li=document.createElement("li");       
         const ahref=document.createElement("a");
         ahref.setAttribute("class","cards-media-img");
@@ -113,10 +117,6 @@ function photographerFactory(data) {
         ahref.setAttribute("title",title);
         ahref.setAttribute("aria-describedby","ouvrir le slider");
         ahref.setAttribute("href","#");
-        const img=document.createElement("img");
-        img.setAttribute("class","media-img");
-        img.setAttribute("src","../FishEye_Photos/Sample Photos/Mimi/Animals_Rainbow.jpg");  /* pas clair */
-        img.setAttribute("alt","like");
         const titlep=document.createElement("p");
         titlep.setAttribute("class","cards-media-title");
         titlep.textContent= title ;                       /* pas clair */
@@ -126,7 +126,6 @@ function photographerFactory(data) {
         compteurp.setAttribute("class","compteur"); 
         compteurp.setAttribute("aria-label","Nombre de likes 300");
         compteurp.setAttribute("tabindex","0>300<");
-
         compteurp.textContent= `${likes}`;                    /* pas clair */
         const button=document.createElement("button");
         button.setAttribute("class","heart-link");
@@ -136,15 +135,80 @@ function photographerFactory(data) {
         const i=document.createElement ("i");
         i.setAttribute("class","heart far fa-heart");
 
-        li.appendChild(ahref);
-        li.appendChild(img);
-        li.appendChild(titlep);
-        li.appendChild(div);
-        div.appendChild(compteurp);
-        compteurp.appendChild(button);
-        button.appendChild(i);
+        // If JPG -> <img>
+        if (jpg.split('.').pop() === 'jpg') {
+            const img = document.createElement('img');
+            img.setAttribute('class', 'media-img');
+            img.setAttribute('src', jpg);
+            img.setAttribute('alt', title);
+            img.setAttribute('tabindex', '0');
+            
+            li.appendChild(ahref);
+            li.appendChild(img);
+            li.appendChild(titlep);
+            li.appendChild(div);
+            div.appendChild(compteurp);
+            compteurp.appendChild(button);
+            button.appendChild(i);
+            }
+        // If MP4 -> <video>
+        if (mp4.split('.').pop() === 'mp4') {
+            const videoPlayer = document.createElement('video');
+            videoPlayer.setAttribute('controls', '');
+            videoPlayer.setAttribute('class', 'lightboxMedia');
+            const source = document.createElement('source');
+            source.setAttribute('src', mp4);
+            source.setAttribute('type', 'video/mp4');
+            source.setAttribute('class', 'lightboxImg');
+            source.setAttribute('tabindex', '0');
+            
+            li.appendChild(ahref);
+            li.appendChild(videoPlayer);
+            videoPlayer.appendChild(source);
+            li.appendChild(titlep);
+            li.appendChild(div);
+            div.appendChild(compteurp);
+            compteurp.appendChild(button);
+            button.appendChild(i);
+            /*album.appendChild(videoPlayer);
+            videoPlayer.appendChild(source);
+            album.appendChild(caption);
+            caption.appendChild(albumTitle);
+            caption.appendChild(like);
+            like.appendChild(compteur);
+            like.appendChild(heart);*/
+            }
+           
         return li;
     }
+
+    //function getMediaPage() {
+        
+        /*const album = document.createElement('article');
+        album.setAttribute('class', 'album');
+        
+        const caption = document.createElement('div');
+        caption.setAttribute('class', 'caption');
+        const albumTitle = document.createElement('h2');
+        albumTitle.setAttribute('class', 'mediaTitle');
+        if (title.length > 20) {
+        albumTitle.textContent = `${title.substring(0, 24)}...`;
+        } else {
+        albumTitle.textContent = title;
+        }
+        
+        const like = document.createElement('p');
+        like.setAttribute('class', 'like');
+        
+        const compteur = document.createElement('span');
+        compteur.setAttribute('class', 'compteur');
+        compteur.textContent = `${likes} `;
+        const heart = document.createElement('span');
+        heart.setAttribute('aria-label', 'likes');
+        heart.setAttribute('class', 'fas fa-heart incrementLike');
+        heart.setAttribute('tabindex', '0');*/
+        
+        
     return {
         id,
         name,
@@ -158,4 +222,4 @@ function photographerFactory(data) {
         getmediasPage,
     }
 
-}
+};

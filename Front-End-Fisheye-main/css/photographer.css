@@ -114,6 +114,13 @@ form input {
     width: 200px;
     border-radius: 10px;
   }
+
+.lightboxMedia {
+
+    height: 250px;
+    width: 250px;
+
+}
   .img-colums{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
