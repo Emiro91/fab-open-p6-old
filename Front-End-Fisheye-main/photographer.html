@@ -34,22 +34,23 @@
     </ul>
     </section>
   </main>
-  <div id="contact_modal">
+  <div id="contact_modal" class="contact_modal">
     <div class="modal">
       <header>
         <h2>Contactez-moi</h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
-      <form>
+      <form class="form" id="form" name="formulaire" action="photographer.html" method="post" onsubmit="return validate();">
         <div>
           <label>Prénom</label>
+          <input id="surname" name="surname"/>
+          <span class="error" id="errorsurname"></span>
+          <label class="name">Nom</label>
           <input />
-          <label>Nom</label>
+          <label class="mail">Email</label>
           <input />
-          <label>Email</label>
-          <input />
-          <label>Votre message</label>
-          <input />
+          <label class="textmessage">Votre message</label>
+          <textarea name="" id="" cols="108" rows="10"></textarea>
         </div>
         <button class="contact_button">Envoyer</button>
       </form>

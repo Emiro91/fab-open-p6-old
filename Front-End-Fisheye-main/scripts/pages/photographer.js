@@ -2,7 +2,7 @@ async function getPhotographer() {
     const url = new URL(window.location.href);
     const id = url.searchParams.get("id");
 
-    // Penser à remplacer par les données récupérées dans le json
+    // Récupérées les données photographes dans le json
     const photographerData = await (
         fetch('./data/photographers.json')
         .then((response) => response.json())
@@ -15,7 +15,6 @@ async function getPhotographer() {
     );
     return photographerData;
 
-    // et bien retourner le tableau photographers seulement une fois
 
 }
 
