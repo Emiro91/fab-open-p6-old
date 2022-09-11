@@ -12,16 +12,16 @@ function closeModal() {
 const dialogTile = document.querySelector(".modal");
 const btnContact = document.querySelector(".contact-btn");
 const closeBtn = document.querySelector(".close-btn");
-closeBtn.href = "#";
+// closeBtn.href = "#";
 
-closeBtn.addEventListener("click", () => closeModal());
-btnContact.addEventListener("click", () => displayModal());
-closeBtn.addEventListener("keydown", (e) => {
-alert(10);
-if (e.key === "Escape") {
-displayModal();
-}
-})
+// closeBtn.addEventListener("click", () => closeModal());
+// btnContact.addEventListener("click", () => displayModal());
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
+
 
 function toValidate(tagName, errorlabel, errorMsg, regex) {
     if (regex) {
@@ -58,38 +58,26 @@ function validate() {
     let regexsurname = /^[A-za-z]{3,12}$/;
     let errorsurname = 'errorsurname';
     let errorMsgsurname = 'Veuillez entrez un prénom valide';
-    if (!toValidate(surname,errorsurname,errorMsgsurname,regexsurname)) return false;}
+    if (!toValidate(surname,errorsurname,errorMsgsurname,regexsurname)) return false;
   
-   /* //avec regex
-    let name = document.forms["reserve"]["last"];
-    let regexlast = /^[A-za-z]{3,12}$/;
-    let errorlast = 'errorlast';
-    let errorMsglast = 'Veuillez entrez un nom valide';
-    if (!toValidate(surname, errorlast, errorMsglast, regexlast)) return false;
+   //avec regex
+    let name = document.forms["formulaire"]["name"];
+    let regexname = /^[A-za-z]{3,12}$/;
+    let errorname = 'errorname';
+    let errorMsgname = 'Veuillez entrez un nom valide';
+    if (!toValidate(name, errorname, errorMsgname, regexname)) return false;
   
     //avec regex
-    let email = document.forms["reserve"]["email"];
+    let email = document.forms["formulaire"]["email"];
     let regexemail = /(.+)@(.+){2,}\.(.+){2,}/;
     let erroremail = 'erroremail';
     let errorMsgemail = 'Veuillez entrez un em@il valide';
     if (!toValidate(email, erroremail, errorMsgemail, regexemail)) return false;
   
     //sans regex
-    let birthdate = document.forms["reserve"]["birthdate"];
-    let errorbirthdate = 'errorbirthdate';
-    let errorMsgbirthdate = "Veuillez entrez une date valide";
-    if (!toValidate(birthdate, errorbirthdate, errorMsgbirthdate)) return false;
-  
-    //sans regex
-    let quantity = document.forms["reserve"]["quantity"];
-    let errorquantity = 'errorquantity';
-    let errorMsgquantity = "Veuillez entrez une quantitée valide";
-    if (!toValidate(quantity, errorquantity, errorMsgquantity)) return false;
-  
-    //sans regex
-    let location = document.forms["reserve"]["location"];
-    let errorlocation = 'errorlocation';
-    let errorMsglocation = "Veuillez choisir une ville";
-    if (!toValidate(location, errorlocation, errorMsglocation)) return false;
+    let message = document.forms["formulaire"]["location"];
+    let errormessage = 'errormessage';
+    let errorMsgmessage = "Veuillez entrer un message valide";
+    if (!toValidate(message, errormessage, errorMsgmessage)) return false;
     closeForm();
-    return false;*/
+    return false;}

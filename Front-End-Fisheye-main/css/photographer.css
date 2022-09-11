@@ -137,8 +137,8 @@ form input {
 
 .lightboxMedia {
 
-    height: 250px;
-    width: 250px;
+    height: 320px;
+    width: 380px;
 
 }
   .img-colums{
@@ -154,5 +154,5 @@ form input {
   .header-like {
     display: flex;
     flex-direction: initial;
-    gap: 10px;
+    gap: 200px;
   }
